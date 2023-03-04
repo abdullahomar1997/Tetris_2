@@ -13,27 +13,15 @@ const Tetris = () => {
 
     const [dropTime, setDropTime] = useState(null);
     const [gameOver, setGameOver] = useState(false);
-
     const [player, updatePlayerPos, resetPlayer, playerRotate] = usePlayer();
-
-    console.log(player)
-    // console.log(updatePlayerPos)
-    // console.log(resetPlayer)
-
     const [stage, setStage, rowsCleared] = useStage(player, resetPlayer);
     const [score, setScore, rows, setRows, level, setLevel] = useGameStatus(rowsCleared);
-
-
-    // console.log(stage)
-
-    // console.log('re-render')
 
     const movePlayer = (direction) => {
 
         if (!checkCollision(player, stage, { x: direction, y: 0 })) {
             updatePlayerPos({ x: direction, y: 0 })
         }
-
     }
 
     const dropPlayer = () => {
@@ -47,8 +35,6 @@ const Tetris = () => {
             //After increase speed
             setDropTime(1000 / (level + 1) + 200)
         }
-
-
 
         if (!checkCollision(player, stage, { x: 0, y: 1 })) {
             updatePlayerPos({ x: 0, y: 1, colided: false })
@@ -109,7 +95,7 @@ const Tetris = () => {
 
 
     return (
-        <StyledTetrisWrapper role='button' onKeyDown={e => move(e)} tabIndex="0" onKeyUp={keyUp}   >
+        <StyledTetrisWrapper autofocus role='button' onKeyDown={e => move(e)} tabIndex="0" onKeyUp={keyUp}   >
             <StyledTetris>
                 <Stage stage={stage} />
                 <aside>

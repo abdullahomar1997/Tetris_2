@@ -3,7 +3,7 @@ import { checkCollision, STAGE_WIDTH } from "../gameHelpers";
 import { randomTetrominoes, TETROMINOES } from "../tetrominoes";
 
 export const usePlayer = () => {
-    console.log("In use Player")
+    // console.log("In use Player")
 
     const [player, setPlayer] = useState({
         pos: { x: 0, y: 0 },
@@ -47,7 +47,7 @@ export const usePlayer = () => {
 
 
     const updatePlayerPos = ({ x, y, collided }) => {
-        console.log("Updating Player")
+        // console.log("Updating Player")
         setPlayer(prev => ({
             ...prev,
             pos: { x: (prev.pos.x += x), y: (prev.pos.y += y) },
